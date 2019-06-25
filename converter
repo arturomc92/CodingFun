@@ -1,0 +1,34 @@
+package com.example.convertidor;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    public void convertMoney(View view){
+
+        Log.i("info", "Cantidad revisada");
+
+        EditText editText = (EditText) findViewById(R.id.quantityMoney);
+        String amountInPesos = editText.getText().toString();
+        double amountInPesosDouble= Double.parseDouble(amountInPesos);
+        double amountInDollarsDouble = amountInPesosDouble * 0.052;
+        String amountInDollarsString = Double.toString(amountInDollarsDouble);
+        Toast.makeText(this, "MXN " + amountInPesos + " son $" + amountInDollarsString + " Dolares", Toast.LENGTH_SHORT).show();
+
+        Log.i("Cantidad en dolares: ", amountInDollarsString);
+
+
+
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+}
